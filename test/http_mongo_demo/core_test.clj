@@ -1,7 +1,4 @@
 (ns http-mongo-demo.core-test
-  (:require [clojure.test :refer :all]
-            [http-mongo-demo.core :refer :all]))
+  (:require [clj-http.client :as client]))
 
-(deftest a-test
-  (testing "FIXME, I fail."
-    (is (= 0 1))))
+(client/put "http://127.0.0.1:3000/pizza" {:form-params {:name "Andis Special" :belag "thunfisch und salami" :extra "Knoblauch" :preis "8,24 EUR"} :content-type :json})
